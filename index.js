@@ -9,28 +9,34 @@ Within every row, it will have columns with the .item class. Each item will be s
 
 
 */
-console.log('hello');
+
 let canvasDimension = 475;
 let gridSize = 16;
 
+//creates grid
 for(let i = 0; i < gridSize; i++){
-    //create a div with class row+i
     const row = document.createElement('div');
     row.classList.add('row');
     canvas.appendChild(row);
-    console.log('row ' + i + ' created');
     for (let j = 0; j < gridSize; j++){
         const col = document.createElement('div');
         col.style.height = (canvasDimension/gridSize) + 'px';
         col.classList.add('col');
         row.appendChild(col);
-        console.log('column created')
     }
 }
 
 const gridElements = document.querySelectorAll('.col');
 
+for (let i = 0; i < gridElements.length; i++){
+    let element = gridElements[i];
+    element.addEventListener('mouseover', () => markBlack(element));
+}
 
+
+function markBlack(element){
+    element.style.backgroundColor = 'black';
+}
 
 function randomizeColor(){
     let red = Math.round(Math.random()*255);
