@@ -8,7 +8,7 @@ h2{
     text-align: center;
     font-weight: 800;
     font-size: 42px;
-    margin-top: -5px;
+    margin: 0px;
 }
 
 #game-container{
@@ -16,7 +16,7 @@ h2{
     height: 475px;
     width: 475px;
     margin: auto;
-    margin-top: -24px;
+    
     display: block;
 }
 
@@ -27,9 +27,77 @@ h2{
 .col{
     flex: auto;
     background-color:white;
-    transition: 0.1s ease-in;
+    
 }
 
-.col:hover{
-    background-color: black;
+.settings-menu{
+    display: flex;
+}
+
+.grid-dimension{
+    flex: auto;
+    width: 100%;
+}
+
+.slider{
+    width: 100%;
+}
+.setting-background{
+    background-color: rgb(36, 36, 36);
+    padding-bottom: 8px;
+    padding-inline: 12px;
+    margin-inline: -10px;
+    margin-bottom: 12px;
+    padding-top: 2px;
+}
+
+.setting-background h3{
+    text-align: center;
+    color: white;
+}
+
+.grid-dimension h4{
+    color: white;
+    text-align: center;
+}
+
+.color-mode{
+    flex: auto;
+    text-align:center;
+    width: 100%;
+    height: auto;
+    padding-top: 24px;
+}
+
+label{
+    color: white;
+    font-weight: 700;
+}
+
+select{
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    margin-inline: 12px;
+    border-radius: 8px;
+}
+
+.clear{
+    flex: auto;
+    width: 100%;
+    text-align: center;
+    padding-top: 24px;
+}
+
+.clear-canvas{
+    width: 50%;
+    height: 40px;
+    background-color: #EDEDED;
+    border-radius: 8px;
+    transition: 0.2s ease-in;
+    border: none;
+}
+
+.clear-canvas:hover{
+    background-color: darkgrey;
 }

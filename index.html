@@ -11,6 +11,27 @@
     <div class="title">
         <h2>Etch-a-Sketch!</h2>
     </div>
+    <div class="setting-background">
+        <h3>Settings: </h3>
+        <div class="settings-menu">
+            <div class="grid-dimension">
+                <h4>Dimension: </h4>
+                <input type="range" min="16" max="64" value="16" class="slider">
+            </div>
+            <div class="color-mode">
+                <label>Color: </label>
+                <select name="color-select" id="color-select">
+                    <option value="black">Black</option>
+                    <option value="rainbow">Rainbow</option>
+                    <option value="eraser">Eraser</option>
+                </select>
+            </div>
+            <div class="clear">
+                <button class="clear-canvas">Clear Canvas</button>
+            </div>
+
+        </div>
+    </div>
     <div id="game-container">
         
     </div>
