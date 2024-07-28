@@ -1,4 +1,5 @@
 const canvas = document.querySelector('#game-container');
+const clearBtn = document.querySelector('.clear-canvas');
 
 /*
 How to create the canvas grid:
@@ -26,11 +27,24 @@ for(let i = 0; i < gridSize; i++){
     }
 }
 
+//Colors grid when mouse hovers over
 const gridElements = document.querySelectorAll('.col');
 
 for (let i = 0; i < gridElements.length; i++){
     let element = gridElements[i];
     element.addEventListener('mouseover', () => markBlack(element));
+}
+
+
+//Clear grid when click clear canvas btn
+clearBtn.addEventListener('click', clearCanvas);
+
+
+function clearCanvas(){
+    for (let i = 0; i < gridElements.length; i++){
+        let element = gridElements[i];
+        element.style.backgroundColor = 'white';
+    }
 }
 
 
