@@ -13,8 +13,8 @@ h2{
 
 #game-container{
     border: black solid 2px;
-    height: 475px;
-    width: 475px;
+    height: 50%;
+    width: 50%;
     margin: auto;
     
     display: block;

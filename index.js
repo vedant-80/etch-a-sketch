@@ -13,7 +13,7 @@ Within every row, it will have columns with the .item class. Each item will be s
 
 */
 
-let canvasDimension = 475;
+let canvasDimension = screen.width/2;
 let gridSize = document.getElementsByClassName('.slider').value;
 
 
