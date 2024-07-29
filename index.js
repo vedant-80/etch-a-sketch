@@ -2,7 +2,7 @@ const canvas = document.querySelector('#game-container');
 const clearBtn = document.querySelector('.clear-canvas');
 const slider = document.querySelector('.slider');
 var gridElements = document.querySelectorAll('.col');
-const colorChoice = document.querySelector('#color-select')
+const colorChoice = document.querySelector('#color-select');
 /*
 How to create the canvas grid:
 
@@ -16,11 +16,15 @@ Within every row, it will have columns with the .item class. Each item will be s
 let canvasDimension = 475;
 let gridSize = document.getElementsByClassName('.slider').value;
 
+
 //Creates new grid whenever dimension slider value changes
-slider.addEventListener('change', () => createGrid(Number(slider.value)));
+slider.addEventListener('change', () => createGrid(Number(slider.value), String(colorChoice.value)));
+colorChoice.addEventListener('change', () => createGrid(Number(slider.value), String(colorChoice.value)));
 
 //Clears canvas on click
 clearBtn.addEventListener('click', clearCanvas);
+
+//Initializes the grid
 createGrid(16);
 
 
@@ -28,18 +32,19 @@ createGrid(16);
 
 
 
-function createGrid(gridSize){
+function createGrid(gridSize, colorType){
     /*
     Function: createGrid
 
     Input:
         - gridSize: a Number that describes how many grid blocks make up each axis
+        - colorType: a string that specifies whether the marker is black, rainbow, or an eraser
 
     Output:
         - deletes the previous existing grid and creates a new grid that marks grid blocks that are hovered over
         - void return type
     */
-
+    
     //Deletes grid
     gridElements = document.querySelectorAll('.col');
     if(gridElements.length > 0){
@@ -55,13 +60,18 @@ function createGrid(gridSize){
             col.style.height = (canvasDimension/gridSize) + 'px';
             col.classList.add('col');
             //Adds marking capability when mouse goes over a grid block
-            col.addEventListener('mouseover', () => markBlack(col));
+            if (colorType == 'rainbow'){
+                col.addEventListener('mouseover', () => markRainbow(col));
+            } else{
+                col.addEventListener('mouseover', () => markBlack(col));
+
+            }
+            
             row.appendChild(col);
         }
     }
     
 }
-//Initializes the grid
 
 
 
@@ -86,6 +96,12 @@ function clearCanvas(){
 function markBlack(element){
     element.style.backgroundColor = 'black';
 }
+
+function markRainbow(element){
+    randomColor = randomizeColor();
+    element.style.backgroundColor = 'rgb(' + randomColor[0] + ', ' + randomColor[1] + ', ' + randomColor[2] + ')';
+}
+
 
 function randomizeColor(){
     let red = Math.round(Math.random()*255);
